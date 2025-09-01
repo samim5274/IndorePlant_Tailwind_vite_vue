@@ -5,6 +5,7 @@
   <TheAbout />
   <ThePopular />
   <TheReview />
+  <TheFooter />
 </template>
 
 <script>
@@ -14,6 +15,7 @@ import TheService from './components/TheService.vue';
 import TheAbout from './components/TheAbout.vue';
 import ThePopular from './components/ThePopular.vue';
 import TheReview from './components/TheReview.vue';
+import TheFooter from './components/TheFooter.vue';
 
 export default {
   components: {
@@ -23,6 +25,7 @@ export default {
     TheAbout,
     ThePopular,
     TheReview,
+    TheFooter,
   }
 }
 </script>

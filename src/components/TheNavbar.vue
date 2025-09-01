@@ -1,5 +1,5 @@
 <template>
-  <header id="header" class="font-family-jost bg-green-950 fixed top-0 z-50 w-full">
+  <header id="header" class="font-family-jost bg-green-950 fixed top-0 z-50 w-full" :class="{ 'border-b border-yellow-500 shadow-md': isScrolled }">
     <nav class="container mx-auto flex items-center justify-between h-16 sm:h-20">
       
       <div class="font-family-lobster lg:text-4xl md:text-3xl sm:text-2xl">IndorePlants.</div>
@@ -34,10 +34,11 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 
 // state
 const menuOpen = ref(false);
+const isScrolled = ref(false);
 
 // methods
 const toggleMenu = () => {
@@ -47,6 +48,18 @@ const toggleMenu = () => {
 const closeMenu = () => {
   menuOpen.value = false;
 };
+
+const handleScroll = () => {
+  isScrolled.value = window.scrollY >= 250;
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
+
 </script>
 
 <style>
